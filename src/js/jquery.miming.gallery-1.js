@@ -74,7 +74,8 @@
 
             function getZip () {
                 message.html("Generating zip file, this might take a while.\
-<br />Download will start automatically when the file is ready.");
+                              <br />Download will start automatically when the\
+                              file is ready.");
                 message.slideDown();
                 $.ajax("#", {
                         "data":{"createzip":true},
@@ -91,7 +92,12 @@
             }
 
             function Menu () {
-                menubutton = $("<img src='svg/menu.svg' class='icon' />");
+                if (compressed) {
+                    menubutton = $("#icon_menu").clone();
+                    menubutton.attr("id","menubutton"); // avoid id duplication
+                } else {
+                    menubutton = $("<img src='svg/menu.svg' class='icon' />");
+                }
                 menubutton.click(toggleMenu);
                 menubutton.css({
                     "position":"absolute",
@@ -217,7 +223,7 @@
 
                 // Menu
                 menu = Menu();
-                $( this ).append(menu);
+                $(this).append(menu);
 
                 // Gallery main image
                 var gallery = $("<div />").attr("id","gallery");
@@ -231,22 +237,21 @@
                     img.fadeIn();
                 });
                 gallery.append(img);
-                $( this ).append(gallery);
+                $(this).append(gallery);
 
                 // Thumbnails
                 thumbnails = $("<ul />").attr("id","thumbs");
-                $( this ).append(thumbnails);
+                $(this).append(thumbnails);
 
                 // Footer
                 var footer = $("<div />").attr("id","footer").html("<a href='https://github.com/fbianco/MimingGallery'>Powered by Miming Gallery</a>");
-                $( this ).append(footer);
+                $(this).append(footer);
 
                 $(window).resize(function() {
                     if ($(window).width()>1024) {
                         img.fadeIn(0);
                     } else {
-                        img.fadeOut(0);
-                        thumbnails.fadeIn(0);
+                        thumbnails.fadeOut(0);
                     }
                     resizeimage();
                 });
