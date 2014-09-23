@@ -12,6 +12,10 @@ following features:
  * Allow download of all images in a ZIP file
  * Based on Jquery and PHP
 
+Demo
+----
+See it live at https://skadi.ch/MimingGalleryDemo/
+
 Usage
 -----
 Simply copy 'index.php' in a web accessible folder on your server containing
@@ -50,6 +54,13 @@ Cleaning cache
 Caching was activated and you want to clean it, go your gallery page and append
 the query '?cleancache' to the the URL this will delete any thumbnails and zip
 file stored in cache folder (See options CACHE, CDIR).
+
+Miming
+------
+In Norse mythology, Miming was a forest-dwelling troll, the son of Hothbrod and
+foster son of Gevar. (CC-BY-SA Wikipedia)
+
+The art of representing a character, mood, idea, or narration by gestures.
 
 Copyright
 ---------
