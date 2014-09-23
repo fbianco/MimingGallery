@@ -248,10 +248,14 @@
                 $(this).append(footer);
 
                 $(window).resize(function() {
-                    if ($(window).width()>1024) {
-                        img.fadeIn(0);
+                    if ($(window).width()<1024) {
+                        // Hide thumbnails and show image only if both were visible !='none'
+                        if (img.css("display")!='none' && thumbnails.css("display")!='none') {
+                            thumbnails.fadeOut(0);
+                        }
                     } else {
-                        thumbnails.fadeOut(0);
+                        // make sure image is visible
+                        img.fadeIn(0);
                     }
                     resizeimage();
                 });
