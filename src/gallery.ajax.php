@@ -26,13 +26,10 @@ See COPYING file for the full license.
 // --------
 // Images folder (with trailling slash)
 define("IDIR", "./");
-// Shall we save thumbnails & zip ?
-//      If False, we generate them live
-define("CACHE", False);
+// Shall we save generated thumbnails & zip ?
+define("CACHE", true);
 // Writable cache folder (with trailling slash)
-//      If cache is False, we will use sys_get_temp_dir()
-//      and try to remove created file.
-define("CDIR", "./cache/");
+define("CDIR", sys_get_temp_dir().'/');
 // jpeg quality for thumbnails and resampled images
 define("QUALITY", 95);
 // Thumbnails size in pixel (resampled square cut of image)
